@@ -8,15 +8,16 @@ import (
 	"fmt"
 	"strconv"
 	"encoding/base64"
+	"math/rand"
 )
 
 
 const (
 	// 挖矿的固定间隔 由于需要pow那个出块时间是不固定的，很可能一个块很难挖，
 	// 大家都是随机碰撞，但是出块块和出快慢都会有难度调整
-	minedTimeInterval = 60
+	minedTimeInterval = 10
 	// 初始的挖矿难度
-	initMineDifficulty = 10
+	initMineDifficulty = 20
 )
 
 type Block struct {
@@ -59,7 +60,7 @@ func New(height int, timestamp int64, data []byte, previousHash []byte, difficul
 
 func (block Block) String() string {
 	return fmt.Sprintf("height: %d, data size: %d, time: %s, nonce: %d, difficulty: %d, hash: %s", block.height, len(block.data), time.Unix(block.timestamp, 0).String(),
-		block.nonce, block.difficulty, strconv.Itoa(int(block.hash[0])) + "||" + base64.StdEncoding.EncodeToString(block.hash))
+		block.nonce, block.difficulty, base64.StdEncoding.EncodeToString(block.hash))
 }
 
 // 将区块 取hash摘要
@@ -194,7 +195,7 @@ func sampleBlock() {
 	//chain.addBlock([]byte("second"))
 	//chain.addBlock([]byte("third"))
 	for i:=0; i<100; i++{
-		chain.addBlock([]byte(strconv.Itoa(i)))
+		chain.addBlock([]byte(strconv.Itoa(i+ rand.Intn(10000))))
 		fmt.Println(chain.bestBlock().String())
 	}
 	chain.isValidChain()
