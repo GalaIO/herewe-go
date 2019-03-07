@@ -40,18 +40,17 @@ type Block struct {
 // 创建一个新区块
 func New(height int, timestamp int64, data []byte, previousHash []byte, difficulty int) Block {
 	// 初始随机值
-	nonce := 0
 	block := Block{
 		previousHash,
 		nil,
 		height,
 		timestamp,
 		data,
-		nonce,
+		0,
 		difficulty,
 	}
 	// 挖矿，保证验证一致，直至等到网络出块
-	nonce, hash := block.mineBlock(nonce)
+	nonce, hash := block.mineBlock()
 	block.nonce = nonce
 	block.hash = hash
 	return block
@@ -135,7 +134,8 @@ func (chain *BlockChain) isValidChain() {
 }
 
 // 挖矿程序，pow机制，前n位为0，简单期间n必须整除4
-func (block *Block) mineBlock(nonce int) (int, []byte) {
+func (block *Block) mineBlock() (int, []byte) {
+	nonce := 0
 	hashed := BlockHash256(block.previousHash, block.data, nonce, block.timestamp)
 	for !validMinedBlockHash(hashed, block.difficulty) {
 		nonce ++
