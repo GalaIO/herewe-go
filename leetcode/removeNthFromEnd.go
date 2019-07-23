@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 /**
  * Definition for singly-linked list.
@@ -13,6 +16,16 @@ import "fmt"
 type ListNode struct {
 	Val int
 	Next *ListNode
+}
+
+func (l *ListNode) String() string {
+	res := ""
+	for l!=nil {
+		res += strconv.Itoa(l.Val) + "->"
+		l = l.Next
+	}
+	res += "nil"
+	return res
 }
 
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
