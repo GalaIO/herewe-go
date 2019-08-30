@@ -15,7 +15,7 @@ func main() {
 	// 换行符 必须有
 	jsonRpcMsg := "{\"jsonrpc\": \"2.0\", \"method\": \"%s\", \"params\": %s, \"id\": %d}\r\n"
 	counter := 0
-	msg := fmt.Sprintf(jsonRpcMsg, "server.ping", "[]", counter)
+	msg := fmt.Sprintf(jsonRpcMsg, "server.version", "[ \"1.9.5\", \"0.4\" ]", counter)
 	conn.Write([]byte(msg))
 
 	bytes := make([]byte, 0, 1024)
