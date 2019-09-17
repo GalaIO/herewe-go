@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"strconv"
+	"errors"
 )
 
 func main() {
@@ -12,6 +13,7 @@ func main() {
 	log.Println(c.B.A.Say())
 	log.Println(c.B.Say("hello"))
 	log.Println(c.A.Say())
+	log.Println(c.Say())
 }
 
 type A struct {
@@ -31,11 +33,11 @@ type B struct {
 }
 
 func (b B) innerSay() string {
-	return "innerSay b"
+	return "innerSay b "
 }
 
 func (b B) Say(s string) string {
-	return s
+	return b.innerSay() + strconv.Itoa(b.tmp)
 }
 
 type C struct {
@@ -44,4 +46,8 @@ type C struct {
 
 func (c C) Say() string {
 	return "c"
+}
+
+func testA(a A) error {
+	return errors.New("test err")
 }
