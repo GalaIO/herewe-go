@@ -29,7 +29,7 @@ type DirInfo struct {
 	Files []FileInfo `json:"files"`
 }
 
-var useProxy = true
+var useProxy = false
 var c *http.Client
 
 // init config
@@ -53,7 +53,7 @@ func init() {
 }
 
 func main() {
-	pushDirParse("./chjina_jiketime", "https://pan.chjina.com/%E5%85%B1%E4%BA%AB/%E8%AF%BE%E7%A8%8B/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/?rootId=root")
+	fetchPathInit()
 	// run a goroutinur to parse dir
 	go dirParseLoop()
 
@@ -66,6 +66,36 @@ func main() {
 	//if err != nil {
 	//	panic(err)
 	//}
+}
+
+func fetchPathInit() {
+	args := os.Args
+	if len(args) < 2 {
+		// read config file
+		file, err := os.Open("fetchList.dat")
+		if err != nil {
+			panic(err)
+		}
+		bytes, err := ioutil.ReadAll(file)
+		if err != nil {
+			panic(err)
+		}
+		type FetchUrlInfo struct {
+			Name string `json:"name"`
+			Url  string `json:"url"`
+		}
+		var list []FetchUrlInfo
+		err = json.Unmarshal(bytes, &list)
+		if err != nil {
+			panic(err)
+		}
+		for _, l := range list {
+			pushDirParse("./chjina_"+l.Name, l.Url+"?rootId=root")
+		}
+		return
+	}
+	//pushDirParse("./chjina_jiketime", "https://pan.chjina.com/%E5%85%B1%E4%BA%AB/%E8%AF%BE%E7%A8%8B/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/?rootId=root")
+	pushDirParse("./chjina_jiketime", args[1])
 }
 
 type RequestInfo struct {
