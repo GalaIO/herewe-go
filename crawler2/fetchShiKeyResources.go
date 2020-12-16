@@ -15,18 +15,18 @@ import (
 )
 
 var whiteNameList = map[string]string{
-	"06 9小时搞定微信小程序开发（完结）/": "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/06%209%E5%B0%8F%E6%97%B6%E6%90%9E%E5%AE%9A%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%EF%BC%88%E5%AE%8C%E7%BB%93%EF%BC%89/",
-	"05 从零开始学架构/":          "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/05%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E6%9E%B6%E6%9E%84/",
-	"30软件测试52讲/":           "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/30%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%9552%E8%AE%B2/",
-	"29趣谈网络协议音频修复版/":       "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/29%E8%B6%A3%E8%B0%88%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E9%9F%B3%E9%A2%91%E4%BF%AE%E5%A4%8D%E7%89%88/",
-	"56 程序员工作法":            "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/56%20%E7%A8%8B%E5%BA%8F%E5%91%98%E5%B7%A5%E4%BD%9C%E6%B3%95/",
-	"54 技术领导力300讲-TGO鲲鹏会":  "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/54%20%E6%8A%80%E6%9C%AF%E9%A2%86%E5%AF%BC%E5%8A%9B300%E8%AE%B2-TGO%E9%B2%B2%E9%B9%8F%E4%BC%9A/html/",
-	"18 朱赟技术管理课":           "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/18%20%E6%9C%B1%E8%B5%9F%E6%8A%80%E6%9C%AF%E7%AE%A1%E7%90%86%E8%AF%BE/",
-	"41秒杀学习资料":             "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/41%E7%A7%92%E6%9D%80%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/",
-	"57 面试现场":              "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/57%20%E9%9D%A2%E8%AF%95%E7%8E%B0%E5%9C%BA/",
+	"30软件测试52讲/":     "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/30%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%9552%E8%AE%B2/",
+	"29趣谈网络协议音频修复版/": "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/29%E8%B6%A3%E8%B0%88%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E9%9F%B3%E9%A2%91%E4%BF%AE%E5%A4%8D%E7%89%88/",
+	//"06 9小时搞定微信小程序开发（完结）/": "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/06%209%E5%B0%8F%E6%97%B6%E6%90%9E%E5%AE%9A%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%EF%BC%88%E5%AE%8C%E7%BB%93%EF%BC%89/",
 	//"11 大咖说/":              "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/11%20%E5%A4%A7%E5%92%96%E8%AF%B4/",
 
 	// downloaded
+	//"56 程序员工作法":            "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/56%20%E7%A8%8B%E5%BA%8F%E5%91%98%E5%B7%A5%E4%BD%9C%E6%B3%95/",
+	//"54 技术领导力300讲-TGO鲲鹏会":  "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/54%20%E6%8A%80%E6%9C%AF%E9%A2%86%E5%AF%BC%E5%8A%9B300%E8%AE%B2-TGO%E9%B2%B2%E9%B9%8F%E4%BC%9A/html/",
+	//"18 朱赟技术管理课":           "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/18%20%E6%9C%B1%E8%B5%9F%E6%8A%80%E6%9C%AF%E7%AE%A1%E7%90%86%E8%AF%BE/",
+	//"41秒杀学习资料":             "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/41%E7%A7%92%E6%9D%80%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/",
+	//"57 面试现场":              "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/57%20%E9%9D%A2%E8%AF%95%E7%8E%B0%E5%9C%BA/",
+	//"05 从零开始学架构/":          "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/05%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E6%9E%B6%E6%9E%84/",
 	//"07 微服务架构核心20讲/":       "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/07%20%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%A0%B8%E5%BF%8320%E8%AE%B2/",
 	//"14 深入浅出gRPC-李林峰/":     "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/14%20%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAgRPC-%E6%9D%8E%E6%9E%97%E5%B3%B0/",
 	//"17 持续交付36讲/":          "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/17%20%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%9836%E8%AE%B2/",
@@ -72,7 +72,7 @@ func newClient() *http.Client {
 
 func main() {
 	fetchPathInit()
-	// run a goroutinur to parse dir
+	// run a goroutinue to parse dir
 	go dirParseLoop()
 
 	// run 3 goroutinue to download files
