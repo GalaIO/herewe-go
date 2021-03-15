@@ -1,4 +1,4 @@
-package grpc
+package main
 
 import (
 	"context"
@@ -28,7 +28,9 @@ func (s *routeGuideServerImpl) GetFeature(ctx context.Context, point *pb.Point) 
 		}
 	}
 	// No feature was found, return an unnamed feature
-	return &pb.Feature{Location: point}, nil
+	tmp := &pb.Feature{Location: point}
+	s.savedFeatures = append(s.savedFeatures, tmp)
+	return tmp, nil
 }
 
 func (s *routeGuideServerImpl) ListFeatures(rect *pb.Rectangle, stream pb.RouteGuide_ListFeaturesServer) error {
@@ -53,8 +55,6 @@ func (s *routeGuideServerImpl) RouteChat(stream pb.RouteGuide_RouteChatServer) e
 func (s *routeGuideServerImpl) mustEmbedUnimplementedRouteGuideServer() {
 	panic("implement me")
 }
-
-
 
 func inRange(point *pb.Point, rect *pb.Rectangle) bool {
 	left := math.Min(float64(rect.Lo.Longitude), float64(rect.Hi.Longitude))

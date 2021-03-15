@@ -1,3 +1,10 @@
+
+// 先编写proto文件，定义service、rpc method、以及request message、response message
+// 然后使用protoc编译为类型定义和接口定义，protoc --go_out=. --go_opt=paths=source_relative \
+//    --go-grpc_out=. --go-grpc_opt=paths=source_relative \
+//    route_guide.proto
+// 然后实现server启动服务，client可以初始化并调用
+
 syntax = "proto3";
 
 service RouteGuide {
