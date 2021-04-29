@@ -12,6 +12,7 @@ func main() {
 
 	testClosure2()
 	fmt.Printf("%s%c%s%c\n", q, 0x60, q, 0x60)
+	fmt.Printf("%v", []byte("Go语言"))
 }
 
 func testClosure1() {
