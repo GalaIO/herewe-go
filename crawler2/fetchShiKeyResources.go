@@ -15,8 +15,14 @@ import (
 )
 
 var whiteNameList = map[string]string{
-	"30软件测试52讲/":     "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/30%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%9552%E8%AE%B2/",
-	"29趣谈网络协议音频修复版/": "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/29%E8%B6%A3%E8%B0%88%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E9%9F%B3%E9%A2%91%E4%BF%AE%E5%A4%8D%E7%89%88/",
+	"41 Nginx核心知识100讲/": "https://d.shikey.com/jike/%E5%B7%B2%E5%AE%8C%E7%BB%93%E7%9A%84%E8%AF%BE%E7%A8%8B/41%20Nginx%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86100%E8%AE%B2/",
+	"42 MySQL实战45讲/":    "https://d.shikey.com/jike/%E5%B7%B2%E5%AE%8C%E7%BB%93%E7%9A%84%E8%AF%BE%E7%A8%8B/42%20MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2/",
+	"33 算法面试通关40讲/":     "https://d.shikey.com/jike/%E5%B7%B2%E5%AE%8C%E7%BB%93%E7%9A%84%E8%AF%BE%E7%A8%8B/33%20%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%80%9A%E5%85%B340%E8%AE%B2/",
+	"14 深入浅出gRPC/":      "https://d.shikey.com/jike/%E5%B7%B2%E5%AE%8C%E7%BB%93%E7%9A%84%E8%AF%BE%E7%A8%8B/14%20%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAgRPC/",
+	"57 Vue开发实战/":       "https://d.shikey.com/jike/%E5%B7%B2%E5%AE%8C%E7%BB%93%E7%9A%84%E8%AF%BE%E7%A8%8B/57%20Vue%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/",
+	"58 10x程序员工作法/":     "https://d.shikey.com/jike/%E5%B7%B2%E5%AE%8C%E7%BB%93%E7%9A%84%E8%AF%BE%E7%A8%8B/58%2010x%E7%A8%8B%E5%BA%8F%E5%91%98%E5%B7%A5%E4%BD%9C%E6%B3%95/",
+	//"30软件测试52讲/":     "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/30%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%9552%E8%AE%B2/",
+	//"29趣谈网络协议音频修复版/": "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/29%E8%B6%A3%E8%B0%88%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E9%9F%B3%E9%A2%91%E4%BF%AE%E5%A4%8D%E7%89%88/",
 	//"06 9小时搞定微信小程序开发（完结）/": "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/06%209%E5%B0%8F%E6%97%B6%E6%90%9E%E5%AE%9A%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%EF%BC%88%E5%AE%8C%E7%BB%93%EF%BC%89/",
 	//"11 大咖说/":              "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/11%20%E5%A4%A7%E5%92%96%E8%AF%B4/",
 
