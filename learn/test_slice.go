@@ -21,4 +21,13 @@ func main() {
 	for s, i := range tmap {
 		fmt.Println(s, i)
 	}
+
+	var s []int
+	for i := 0; i < 1000; i++ {
+		if len(s) > 10 {
+			s = s[10:]
+		}
+		s = append(s, i)
+		fmt.Println(i, "s cap", cap(s))
+	}
 }
