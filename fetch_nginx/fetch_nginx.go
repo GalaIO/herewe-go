@@ -7,7 +7,6 @@ import (
 	"io"
 	"io/ioutil"
 	"net/http"
-	"net/url"
 	"os"
 	"path"
 	"regexp"
@@ -176,7 +175,6 @@ func fetchFromUrl(saveDir, dirPath string) error {
 		name := match[2]
 		newUrl := match[1]
 		newUrl = html.UnescapeString(newUrl)
-		newUrl = url.PathEscape(newUrl)
 		if strings.EqualFold(newUrl, "./") ||
 			strings.EqualFold(newUrl, "../") {
 			fmt.Println("err path", newUrl, "ignore")

@@ -7,7 +7,6 @@ import (
 	"io"
 	"io/ioutil"
 	"net/http"
-	"net/url"
 	"os"
 	"path"
 	"regexp"
@@ -101,7 +100,7 @@ func main() {
 func fetchPathInit() {
 	//pushDirParse("/Users/galaio/Documentss/ziliao", "https://d.shikey.com/jike/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E5%B7%B2%E5%AE%8C%E7%BB%93/")
 	for key, val := range whiteNameList {
-		pushDirParse("/Users/galaio/Documentss/ziliao/"+key, val)
+		pushDirParse("/data1/baidupan/"+key, val)
 		fetchDirStat.IncrTotal()
 	}
 
@@ -229,7 +228,6 @@ func fetchFromUrl(saveDir, requestPath string) error {
 		name := match[2]
 		rel := match[1]
 		rel = html.UnescapeString(rel)
-		rel = url.PathEscape(rel)
 		newUrl := "https://d.shikey.com" + rel
 		if strings.HasSuffix(name, "/") {
 			pushDirParse(path.Join(saveDir, name), newUrl)
