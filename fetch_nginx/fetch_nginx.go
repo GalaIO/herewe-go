@@ -3,9 +3,11 @@ package main
 import (
 	"crypto/tls"
 	"fmt"
+	"html"
 	"io"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 	"os"
 	"path"
 	"regexp"
@@ -172,25 +174,27 @@ func fetchFromUrl(saveDir, dirPath string) error {
 	submatch := re.FindAllStringSubmatch(string(bytes), -1)
 	for _, match := range submatch {
 		name := match[2]
-		url := match[1]
-		if strings.EqualFold(url, "./") ||
-			strings.EqualFold(url, "../") {
-			fmt.Println("err path", url, "ignore")
+		newUrl := match[1]
+		newUrl = html.UnescapeString(newUrl)
+		newUrl = url.PathEscape(newUrl)
+		if strings.EqualFold(newUrl, "./") ||
+			strings.EqualFold(newUrl, "../") {
+			fmt.Println("err path", newUrl, "ignore")
 			continue
 		}
-		// abs url
-		if strings.HasPrefix(url, "/") {
-			url = host + url
+		// abs newUrl
+		if strings.HasPrefix(newUrl, "/") {
+			newUrl = host + newUrl
 		} else {
-			//related url
-			url = dirPath + url
+			//related newUrl
+			newUrl = dirPath + newUrl
 		}
-		if strings.HasSuffix(url, "/") {
-			pushDirParse(path.Join(saveDir, name), url)
+		if strings.HasSuffix(newUrl, "/") {
+			pushDirParse(path.Join(saveDir, name), newUrl)
 			fetchDirStat.IncrTotal()
 			continue
 		}
-		pushDownloadFile(url, saveDir, name)
+		pushDownloadFile(newUrl, saveDir, name)
 		// stat download info
 		fetchFilesStat.IncrTotal()
 	}

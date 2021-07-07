@@ -3,9 +3,11 @@ package main
 import (
 	"crypto/tls"
 	"fmt"
+	"html"
 	"io"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 	"os"
 	"path"
 	"regexp"
@@ -225,7 +227,10 @@ func fetchFromUrl(saveDir, requestPath string) error {
 	submatch := re.FindAllStringSubmatch(string(bytes), -1)
 	for _, match := range submatch {
 		name := match[2]
-		newUrl := "https://d.shikey.com" + match[1]
+		rel := match[1]
+		rel = html.UnescapeString(rel)
+		rel = url.PathEscape(rel)
+		newUrl := "https://d.shikey.com" + rel
 		if strings.HasSuffix(name, "/") {
 			pushDirParse(path.Join(saveDir, name), newUrl)
 			fetchDirStat.IncrTotal()
