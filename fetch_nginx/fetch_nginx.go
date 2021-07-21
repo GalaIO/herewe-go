@@ -16,12 +16,12 @@ import (
 )
 
 var whiteNameList = map[string]string{
-	"": "",
+	"tumblr/": "http://fuli.freepie.club/tumblr/",
 }
 
-var host = ""
-var saveDir = ""
-var defaultRefer = ""
+var host = "http://fuli.freepie.club"
+var saveDir = "/Users/jacksenguo/tmp/"
+var defaultRefer = "http://fuli.freepie.club"
 var urlRegx = "<a href=\"(.*?)\">(.*?)</a>"
 var useProxy = false
 var transPort = &http.Transport{
@@ -174,6 +174,7 @@ func fetchFromUrl(saveDir, dirPath string) error {
 	for _, match := range submatch {
 		name := match[2]
 		newUrl := match[1]
+		name = html.UnescapeString(name)
 		newUrl = html.UnescapeString(newUrl)
 		if strings.EqualFold(newUrl, "./") ||
 			strings.EqualFold(newUrl, "../") {

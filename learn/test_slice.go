@@ -30,4 +30,9 @@ func main() {
 		s = append(s, i)
 		fmt.Println(i, "s cap", cap(s))
 	}
+
+	fmt.Println("s[1:1]", s[1:1])
+
+	s2 := []int{0, 2}
+	fmt.Println("s2[1:1]", s2[1:2])
 }

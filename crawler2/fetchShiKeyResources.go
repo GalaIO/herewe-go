@@ -227,6 +227,7 @@ func fetchFromUrl(saveDir, requestPath string) error {
 	for _, match := range submatch {
 		name := match[2]
 		rel := match[1]
+		name = html.UnescapeString(name)
 		rel = html.UnescapeString(rel)
 		newUrl := "https://d.shikey.com" + rel
 		if strings.HasSuffix(name, "/") {
